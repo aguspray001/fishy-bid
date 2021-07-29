@@ -8,21 +8,19 @@ import Link from 'next/link'
 import NotificationContainer from "react-notifications/lib/NotificationContainer";
 import { showNotification } from "../../utils/utils";
 import { useRouter } from "next/dist/client/router";
+import { useDispatch } from "react-redux";
+import { doSignIn } from "../../redux/actions/auth";
 
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
+  const dispatch = useDispatch();
   // oke
 
   const onSubmit = () =>{
-    if(email !== '' && password !== ''){
-      showNotification('success', 'Login Success', 'Success', 3000);
-      router.push('/')
-    }else{
-      showNotification('error', 'Please check your email and password...', 'Error', 3000);
-    }
+    dispatch(doSignIn({email, password}, router))
   }
 
   return (

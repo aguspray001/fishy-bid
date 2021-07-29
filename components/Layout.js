@@ -10,7 +10,6 @@ import React from 'react';
 
 const Layout = ({children, title, desc}) => {
   const router = useRouter();
-  console.log(router.pathname)
   return (
     <div>
       <Head>

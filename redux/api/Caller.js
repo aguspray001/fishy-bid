@@ -1,6 +1,6 @@
 import axios from 'axios';
 import qs from 'querystring';
-import { BaseUrl } from '../../Constant';
+import { BaseUrl } from '../../utils/utils';
 
 const Call = async (method, url, data = {}, token = '', headers = {}, options = {}, baseUrl = BaseUrl, timeout = 60000, resp = 'json') => {
     const config = {
@@ -11,7 +11,8 @@ const Call = async (method, url, data = {}, token = '', headers = {}, options = 
         data,
         timeout,
         responseType: resp,
-        headers: { ...headers, Authorization : token }
+        headers: { ...headers, 'bb-token' : token }
+        
     }
     // console.log({ config });
     return await axios.request(config)

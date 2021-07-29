@@ -9,11 +9,10 @@ const CardPreview = ({ src, title, nama, desc, onClick }) => {
   return (
     <Card style={{width:300, margin:10}} onClick={onClick}>
       <CardActionArea>
-        <Image
+        <img
           src={src}
           alt={title}
-          width={350}
-          height={200}
+          style={{height:200, width:300, padding:10, borderRadius:10}}
           objectFit="cover"
         />
         <CardContent>

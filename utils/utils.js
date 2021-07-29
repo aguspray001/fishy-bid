@@ -18,6 +18,9 @@ const showNotification = (type, message, title=false, timeout=2000) =>{
       }
 }
 
+const BaseUrl = 'http://localhost:3333/api/v1'
+
 export {
-    showNotification
+    showNotification,
+    BaseUrl
 }
